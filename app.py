@@ -55,7 +55,7 @@ content_filter = st.sidebar.selectbox("Filtrar por tipo", ["Todos", "Movie", "TV
 # ----------------------
 # Main
 # ----------------------
-st.title("📺 Netflix Data Dashboard")
+st.title("📺 Netflix Data Dashboard v2")
  
 if uploaded is None:
     st.warning("Sube un CSV para comenzar (por ejemplo, `netflix_titles.csv`).")
