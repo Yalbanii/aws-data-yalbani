@@ -34,7 +34,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          docker-compose down --remove-orphans || true
+          docker-compose down --remove-orphans
           docker-compose up -d --build
           docker-compose ps
           docker logs --tail 50 taxi_dashboard || true
