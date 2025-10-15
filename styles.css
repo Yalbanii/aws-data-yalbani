@@ -18,10 +18,9 @@ body {
 .container {
     margin-top: 50px;
     padding-bottom: 50px;
-    max-width: 1200px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    /* Ajuste para asegurar que no se pegue a los bordes */
     padding-left: 25px !important; 
     padding-right: 25px !important;
 }
@@ -30,7 +29,7 @@ body {
 .neon-title {
     color: var(--color-neon-orange);
     text-shadow: 0 0 7px var(--color-neon-orange), 0 0 20px rgba(255, 127, 42, 0.5);
-    font-weight: 800;
+    font-weight: 500;
     letter-spacing: 3px;
     font-size: 3rem;
     text-align: center;
@@ -85,3 +84,67 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
     gap: 30px;
     margin-top: 40px;
+}
+.project-card {
+    background-color: var(--color-dark-surface) !important;
+    border: 1px solid rgba(255, 127, 42, 0.3);
+    border-radius: 8px;
+    color: var(--color-text-light);
+    text-decoration: none;
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.project-card:hover {
+    border-color: var(--color-neon-orange);
+    box-shadow: var(--glow-spread);
+    transform: translateY(-5px); 
+}
+
+.project-card .card-title {
+    color: var(--color-text-light);
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+    text-align: center; 
+}
+
+.project-card:hover .card-title {
+    color: var(--color-neon-orange);
+}
+
+/* --- Vista Previa Pequeña --- */
+.small-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(255, 127, 42, 0.2);
+    padding-top: 10px;
+    max-width: 220px; 
+}
+
+.small-preview-img {
+    width: 200px !important;
+    height: 100px !important;
+    object-fit: cover; 
+    border-radius: 4px;
+    border: 1px solid var(--color-neon-orange);
+    margin-bottom: 5px;
+}
+
+.small-preview-desc {
+    font-size: 0.85em;
+    color: var(--color-text-light);
+    text-align: center;
+    opacity: 0.7;
+    margin: 0;
+}
+
+@media (max-width: 992px) {
+}
