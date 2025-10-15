@@ -1,13 +1,13 @@
 /* paleta de colores */
 :root {
-    --color-dark-background: #121212; /* Fondo muy oscuro */
-    --color-dark-surface: #1e1e1e;    /* Superficie para cards, etc. */
-    --color-neon-orange: #ff7f2a;     /* Tono naranja neón */
-    --color-text-light: #e0e0e0;      /* Texto claro */
-    --glow-spread: 0 0 10px rgba(255, 127, 42, 0.7); /* Sombra neón para el efecto */
+    --color-dark-background: #121212; 
+    --color-dark-surface: #1e1e1e;    
+    --color-neon-orange: #ff7f2a;     
+    --color-text-light: #e0e0e0;      
+    --glow-spread: 0 0 10px rgba(255, 127, 42, 0.7); 
 }
 
-/* Estilos Generales */
+/* Estilos Generales*/
 body {
     background-color: var(--color-dark-background);
     color: var(--color-text-light);
@@ -18,28 +18,28 @@ body {
 .container {
     margin-top: 50px;
     padding-bottom: 50px;
-    max-width: 1200px; 
-    margin-left: auto; 
+    max-width: 1200px;
+    margin-left: auto;
     margin-right: auto;
-    padding-left: 25px; 
-    padding-right: 25px;
+    padding-left: 25px !important; 
+    padding-right: 25px !important;
 }
 
-/* --- Títulos y Texto --- */
+/* --- Titulos y Texto --- */
 .neon-title {
     color: var(--color-neon-orange);
     text-shadow: 0 0 7px var(--color-neon-orange), 0 0 20px rgba(255, 127, 42, 0.5);
     font-weight: 800;
     letter-spacing: 3px;
-    font-size: 3rem; 
-    text-align: center; 
+    font-size: 3rem;
+    text-align: center;
 }
 
 .neon-subtitle {
     color: var(--color-text-light);
     font-style: italic;
     opacity: 0.8;
-    text-align: center; 
+    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -48,8 +48,6 @@ body {
     background-color: var(--color-dark-surface) !important;
     border-bottom: 1px solid var(--color-neon-orange);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    padding-left: 25px; 
-    padding-right: 25px;
 }
 
 .navbar-brand {
@@ -58,7 +56,7 @@ body {
     font-weight: 600;
 }
 
-/* Botones de Redes Sociales */
+/* Botones de Redes */
 .neon-button {
     color: var(--color-neon-orange) !important;
     border-color: var(--color-neon-orange) !important;
@@ -74,11 +72,11 @@ body {
 }
 
 .neon-button img {
-    filter: invert(50%) sepia(90%) saturate(7000%) hue-rotate(-20deg) brightness(110%) contrast(100%); 
+    filter: invert(50%) sepia(90%) saturate(7000%) hue-rotate(-20deg) brightness(110%) contrast(100%);
 }
 
 .neon-button:hover img {
-    filter: invert(10%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); 
+    filter: invert(10%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 .projects-grid {
@@ -89,19 +87,19 @@ body {
 }
 
 .project-card {
-    background-color: var(--color-dark-surface);
+    background-color: var(--color-dark-surface) !important;
     border: 1px solid rgba(255, 127, 42, 0.3);
     border-radius: 8px;
     color: var(--color-text-light);
-    text-decoration: none; 
+    text-decoration: none;
     position: relative;
-    overflow: hidden; 
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     padding: 15px;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
 }
 
 .project-card:hover {
@@ -115,13 +113,12 @@ body {
     font-weight: 600;
     margin-bottom: 10px;
     transition: color 0.3s ease;
-    text-align: center;
+    text-align: center; 
 }
 
 .project-card:hover .card-title {
     color: var(--color-neon-orange);
 }
-
 
 /* --- Vista Previa Pequeña --- */
 .small-preview-container {
@@ -130,11 +127,12 @@ body {
     align-items: center;
     border-top: 1px solid rgba(255, 127, 42, 0.2);
     padding-top: 10px;
+    max-width: 220px; 
 }
 
 .small-preview-img {
-    width: 200px; 
-    height: 100px; 
+    width: 200px !important;
+    height: 100px !important;
     object-fit: cover; 
     border-radius: 4px;
     border: 1px solid var(--color-neon-orange);
@@ -149,20 +147,6 @@ body {
     margin: 0;
 }
 
-.preview-img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(255, 127, 42, 0.5);
-}
-
-.preview-desc {
-    font-size: 0.9em;
-    color: var(--color-text-light);
-    text-align: center;
-}
-
 @media (max-width: 992px) {
-    }
+
 }
