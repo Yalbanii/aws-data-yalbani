@@ -13,6 +13,7 @@ body {
     color: var(--color-text-light);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
+    margin: 20px;
 }
 
 .container {
@@ -141,44 +142,6 @@ body {
     text-align: center;
     opacity: 0.7;
     margin: 0;
-}
-
-
-/* --- Vista Previa  --- */
-.card-preview {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 300px;
-    height: auto;
-    background-color: var(--color-dark-background);
-    border: 2px solid var(--color-neon-orange);
-    border-radius: 8px;
-    padding: 10px;
-    z-index: 10;
-    box-shadow: 0 0 15px rgba(255, 127, 42, 0.9);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease, left 0.4s ease;
-}
-
-.project-card:hover .card-preview {
-    opacity: 1;
-    left: calc(100% + 15px);
-}
-
-.preview-img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(255, 127, 42, 0.5);
-}
-
-.preview-desc {
-    font-size: 0.9em;
-    color: var(--color-text-light);
-    text-align: center;
 }
 
 /* Responsividad */
