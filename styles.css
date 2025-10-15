@@ -1,10 +1,22 @@
 /* paleta de colores */
 :root {
+    /* proyectos */
     --color-dark-background: #121212; 
     --color-dark-surface: #1e1e1e;    
     --color-neon-orange: #ff7f2a;     
     --color-text-light: #e0e0e0;      
     --glow-spread: 0 0 10px rgba(255, 127, 42, 0.7); 
+    /* certificados */
+    --color-neon-turquesa: #00ffff;
+    --glow-turquesa: 0 0 10px rgba(0, 255, 255, 0.7);
+    --color-text-light: #e0e0e0;      
+    --glow-spread: 0 0 10px rgba(255, 127, 42, 0.7); 
+    /* proyecto final */
+    --color-neon-rosa: #ff00ff;
+    --glow-rosa: 0 0 15px rgba(255, 0, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.4); /* Glow mas intenso */
+    --color-text-light: #e0e0e0;      
+    --glow-spread: 0 0 10px rgba(255, 127, 42, 0.7); 
+    --glow-turquesa: 0 0 10px rgba(0, 255, 255, 0.7);
 }
 
 /* Estilos Generales*/
@@ -35,6 +47,15 @@ body {
     letter-spacing: 3px;
     font-size: 3rem;
     text-align: center;
+}
+
+.turquesa-title {
+    color: var(--color-neon-turquesa);
+    text-shadow: 0 0 7px var(--color-neon-turquesa), 0 0 20px rgba(0, 255, 255, 0.5);
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 3rem;
+    text-align: center;
 }
 
 .neon-subtitle {
@@ -130,6 +151,90 @@ body {
     color: var(--color-neon-orange);
 }
 
+.turquesa-card {
+    background-color: var(--color-dark-surface) !important;
+    border: 1px solid rgba(0, 255, 255, 0.3); /* Turquesa semi-transparente */
+    border-radius: 8px;
+    color: var(--color-text-light);
+    text-decoration: none;
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.turquesa-card .card-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0; 
+}
+
+.turquesa-card:hover {
+    border-color: var(--color-neon-turquesa);
+    box-shadow: var(--glow-turquesa); /* Aplicar el brillo turquesa */
+    transform: translateY(-5px); 
+}
+
+.turquesa-card .card-title {
+    color: var(--color-text-light);
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+    text-align: center; 
+}
+
+.turquesa-card:hover .card-title {
+    color: var(--color-neon-turquesa);
+}
+
+.rosa-title {
+    color: var(--color-neon-rosa);
+    text-shadow: 0 0 10px var(--color-neon-rosa), 0 0 30px rgba(255, 0, 255, 0.6);
+    font-weight: 900;
+    letter-spacing: 5px; /* Más espaciado para destacar */
+    font-size: 3.5rem; /* Más grande */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* --- Proyecto FINAL --- */
+.rosa-card-main {
+    background-color: var(--color-dark-surface) !important;
+    border: 3px solid var(--color-neon-rosa); /* Borde grueso */
+    border-radius: 12px;
+    color: var(--color-text-light);
+    text-decoration: none;
+    position: relative;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto; /* Centrar */
+}
+
+.rosa-card-main:hover {
+    box-shadow: var(--glow-rosa); /* Aplicar el brillo rosa fuerte */
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.rosa-card-main .card-title {
+    color: var(--color-neon-rosa);
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
 /* --- Vista Previa Pequeña --- */
 .small-preview-container {
     display: flex;
@@ -154,6 +259,60 @@ body {
     text-align: center;
     opacity: 0.7;
     margin: 0;
+}
+
+.turquesa-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    padding-top: 10px;
+}
+
+.turquesa-preview-img {
+    width: 300px !important;
+    height: 150px !important;
+    object-fit: cover; 
+    border-radius: 4px;
+    border: 1px solid var(--color-neon-turquesa);
+    margin-bottom: 5px;
+}
+
+.turquesa-preview-desc {
+    font-size: 0.85em;
+    color: var(--color-text-light);
+    text-align: center;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.neon-subtitle {
+    color: var(--color-text-light);
+    font-style: italic;
+    opacity: 0.8;
+    text-align: center;
+    margin-bottom: 20px;
+}
+    .large-preview-img {
+    width: 100%; 
+    max-height: 400px;
+    object-fit: cover; 
+    border-radius: 8px;
+    border: 2px solid var(--color-neon-rosa);
+    margin-bottom: 15px;
+    transition: border-color 0.4s ease;
+}
+
+.rosa-card-main:hover .large-preview-img {
+    border-color: var(--color-text-light);
+}
+
+.large-preview-desc {
+    font-size: 1.1em;
+    color: var(--color-text-light);
+    text-align: center;
+    opacity: 0.9;
+    margin-top: 15px;
 }
 
 @media (max-width: 992px) {
