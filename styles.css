@@ -19,10 +19,8 @@ body {
     margin-top: 50px;
     padding-bottom: 50px;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 25px !important; 
-    padding-right: 25px !important;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* --- Titulos y Texto --- */
