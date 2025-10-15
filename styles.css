@@ -58,14 +58,15 @@ body {
     text-align: center;
 }
 
-.neon-subtitle {
-    color: var(--color-text-light);
-    font-style: italic;
-    opacity: 0.8;
-    text-align: center;
-    margin-bottom: 20px;
+.rosa-title {
+    color: var(--color-neon-rosa);
+    text-shadow: 0 0 10px var(--color-neon-rosa), 0 0 30px rgba(255, 0, 255, 0.6);
+    font-weight: 900;
+    letter-spacing: 5px; /* espaciado para destacar */
+    font-size: 3.5rem; /* grande */
+    text-align: center;
+    margin-bottom: 40px;
 }
-
 /* --- Navbar --- */
 .navbar {
     background-color: var(--color-dark-surface) !important;
@@ -189,21 +190,15 @@ body {
     text-align: center; 
 }
 
+
 .turquesa-card:hover .card-title {
     color: var(--color-neon-turquesa);
 }
 
-.rosa-title {
-    color: var(--color-neon-rosa);
-    text-shadow: 0 0 10px var(--color-neon-rosa), 0 0 30px rgba(255, 0, 255, 0.6);
-    font-weight: 900;
-    letter-spacing: 5px; /* Más espaciado para destacar */
-    font-size: 3.5rem; /* Más grande */
-    text-align: center;
-    margin-bottom: 40px;
-}
+
 
 /* --- Proyecto FINAL --- */
+
 .rosa-card-main {
     background-color: var(--color-dark-surface) !important;
     border: 3px solid var(--color-neon-rosa); /* Borde grueso */
@@ -245,8 +240,8 @@ body {
 }
 
 .small-preview-img {
-    width: 300px !important;
-    height: 150px !important;
+    width: 400px;
+    height: 2500px;
     object-fit: cover; 
     border-radius: 4px;
     border: 1px solid var(--color-neon-orange);
@@ -270,8 +265,8 @@ body {
 }
 
 .turquesa-preview-img {
-    width: 300px !important;
-    height: 150px !important;
+    width: 400px;
+    height: 2500px;
     object-fit: cover; 
     border-radius: 4px;
     border: 1px solid var(--color-neon-turquesa);
@@ -293,7 +288,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
-    .large-preview-img {
+.large-preview-img {
     width: 100%; 
     max-height: 400px;
     object-fit: cover; 
