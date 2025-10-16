@@ -23,26 +23,26 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: var(--color-dark-surface) !important;
+    background-color: var(--color-dark-surface);
     border-bottom: 1px solid var(--color-neon-orange);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-brand {
-    color: var(--color-neon-orange) !important;
+    color: var(--color-neon-orange);
     text-shadow: 0 0 5px var(--color-neon-orange);
     font-weight: 600;
 }
 
 .neon-button {
-    color: var(--color-neon-orange) !important;
-    border-color: var(--color-neon-orange) !important;
+    color: var(--color-neon-orange);
+    border-color: var(--color-neon-orange);
     transition: all 0.3s ease;
 }
 
 .neon-button:hover {
-    color: var(--color-dark-bg) !important;
-    background-color: var(--color-neon-orange) !important;
+    color: var(--color-dark-bg);
+    background-color: var(--color-neon-orange);
     box-shadow: 0 0 10px rgba(255, 127, 42, 0.7);
     transform: scale(1.05);
 }
@@ -86,6 +86,16 @@ body {
     margin-bottom: 20px;
 }
 
+.rosa-title-small {
+    color: var(--color-neon-rosa);
+    text-shadow: 0 0 8px var(--color-neon-rosa);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
 .neon-subtitle {
     color: var(--color-text-light);
     font-style: italic;
@@ -103,7 +113,8 @@ body {
 
 /* proyectos */
 .project-card,
-.certificate-card {
+.certificate-card,
+.rosa-card {
     background-color: var(--color-dark-surface);
     border: 1px solid rgba(255, 127, 42, 0.3);
     border-radius: 8px;
@@ -118,8 +129,13 @@ body {
     border-color: rgba(0, 255, 255, 0.3);
 }
 
+.rosa-card {
+    border-color: rgba(255, 0, 255, 0.3);
+}
+
 .project-card:hover,
-.certificate-card:hover {
+.certificate-card:hover,
+.rosa-card:hover {
     transform: translateY(-5px);
 }
 
@@ -133,8 +149,14 @@ body {
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
+.rosa-card.card-hover {
+    border-color: var(--color-neon-rosa);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
 .project-card .card-body,
-.certificate-card .card-body {
+.certificate-card .card-body,
+.rosa-card .card-body {
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -160,12 +182,15 @@ body {
 .certificate-card:hover .card-title {
     color: var(--color-neon-turquesa);
 }
+.rosa-card:hover .card-title {
+    color: var(--color-neon-rosa);
+}
 
 /* preview */
 .preview-img {
-    width: 100%;
-    max-width: 250px;
-    height: 150px;
+    width: 150%;
+    max-width: 300px;
+    height: 250px;
     object-fit: cover;
     border-radius: 6px;
     border: 1px solid rgba(255, 127, 42, 0.3);
@@ -174,6 +199,10 @@ body {
 
 .certificate-card .preview-img {
     border-color: rgba(0, 255, 255, 0.3);
+}
+
+.rosa-card .preview-img {
+    border-color: rgba(255, 0, 255, 0.3);
 }
 
 .preview-desc {
@@ -192,7 +221,7 @@ body {
     color: var(--color-text-light);
     text-decoration: none;
     transition: all 0.4s ease;
-    padding: 40px;
+    padding: 20px;
     display: block;
     text-align: center;
     max-width: 800px;
