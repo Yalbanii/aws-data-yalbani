@@ -240,7 +240,7 @@ body {
 
 .small-preview-img {
     width: 400px;
-    height: 2500px;
+    height: 250px;
     object-fit: cover; 
     border-radius: 4px;
     border: 1px solid var(--color-neon-orange);
