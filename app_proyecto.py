@@ -93,6 +93,7 @@ def cargar_csv_desde_s3(bucket, key):
         return pd.read_csv(io.BytesIO(body))
     except Exception as e:
         st.error(f"❌ Error al cargar {key}: {e}")
+        st.error(f"Bucket: {bucket}, Key: {key}")
         return pd.DataFrame()
         
 # ==========================================
