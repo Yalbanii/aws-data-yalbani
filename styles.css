@@ -251,6 +251,76 @@ body {
     opacity: 0.9;
 }
 
+/* footer complejo */
+
+.world-cup-footer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 50px 20px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.insight-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+.insight-card h3 {
+    color: #00d9ff;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.insight-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.insight-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.insight-card li:last-child {
+    border-bottom: none;
+}
+
+.footer-signature {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-signature p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #00d9ff;
+    margin: 0;
+}
+
 @media (max-width: 768px) {
     .neon-title,
     .turquesa-title {
