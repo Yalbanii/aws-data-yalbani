@@ -2,8 +2,8 @@ version: "3.9"
  
 services:
   streamlit:
-    build: .                   # <- construye la imagen usando el Dockerfile en este directorio
-    container_name: taxi_dashboard
+    build: .                   # <- construye la imagen usando el Dockerfile en este directorio taxi_dashboard
+    container_name: mundial_dashboard
     ports:
       - "8501:8501"
     env_file:
