@@ -71,6 +71,43 @@ div[data-testid="stMetricValue"] {
     font-size: 2rem;
     font-weight: bold;
 }
+.neon-yellow-container {
+    background-color: #1a1a1a;
+    border: 3px solid #ffff00;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.6),
+                inset 0 0 20px rgba(255, 255, 0, 0.1);
+    margin-bottom: 30px;
+}
+.neon-yellow-title {
+    color: #ffff00;
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px #ffff00, 0 0 20px rgba(255, 255, 0, 0.6);
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+.data-sources-table {
+    width: 100%;
+    margin-top: 20px;
+}
+.data-sources-table th {
+    background-color: #333;
+    color: #ffff00;
+    padding: 12px;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.6);
+    font-weight: 700;
+}
+.data-sources-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 0, 0.2);
+}
+.dataset-highlight {
+    color: #ffff00;
+    font-weight: 600;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -130,6 +167,7 @@ st.sidebar.markdown("---")
 seccion = st.sidebar.radio(
     "📊 Selecciona un Análisis:",
     [
+        "📋 Fuentes de Datos",
         "🏟️ Asistencia y Capacidad",
         "🌎 Estadios por País Local",
         "⚽ Análisis de Goles",
@@ -141,6 +179,66 @@ seccion = st.sidebar.radio(
 
 st.sidebar.markdown("---")
 st.sidebar.info("💡 **Datos actualizados desde S3**\n\n Acceso concedido en S3 para explorar los análisis del Mundial 2026.")
+
+if seccion == "📋 Fuentes de Datos":
+    st.markdown('<div class="neon-yellow-container">', unsafe_allow_html=True)
+    st.markdown('<h1 class="neon-yellow-title">⚡ FUENTES DE DATOS ⚡</h1>', unsafe_allow_html=True)
+
+    datos_fuentes = pd.DataFrame({
+        'Dataset de Kaggle': [
+            'FIFA_history.csv',
+            'Attendance Sheet.csv',
+            'Football Stadiums.csv',
+            'results.csv',
+            'merged_players.csv',
+            'ballondor_2025_nominees.csv',
+            'goalscorers.csv'
+        ],
+        'Descripción': [
+            'Datos históricos de mundiales 1930-2022',
+            'Asistencias Mundial Qatar 2022',
+            'Estadios mundiales con capacidades',
+            'Resultados de partidos históricos',
+            'Estadísticas de 90k+ jugadores',
+            'Nominados Balón de Oro 2025',
+            'Goleadores históricos'
+        ],
+        'Registros': [
+            '22 eventos',
+            '64 partidos',
+            '2,000+ estadios',
+            '45,000+ partidos',
+            '90,000+ registros',
+            '30 jugadores',
+            '40,000+ goles'
+        ]
+    })
+    
+    st.dataframe(
+        datos_fuentes.style.set_properties(**{
+            'background-color': 'rgba(255, 255, 0, 0.05)',
+            'color': '#e0e0e0',
+            'border-color': 'rgba(255, 255, 0, 0.2)'
+        }),
+        use_container_width=True,
+        height=350
+    )
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("📊 Total de Datasets", "7", delta="Fuentes principales")
+    with col2:
+        st.metric("🌐 Origen", "Kaggle", delta="Datos públicos")
+    with col3:
+        st.metric("📅 Periodo", "1930-2025", delta="95 años de historia")
+    
+    st.info("""
+    💡 **Información importante:**
+    - Todos los datasets provienen de Kaggle y contienen datos históricos del Mundial de Fútbol
+    - Los datos abarcan desde 1930 hasta proyecciones para 2026
+    - Total aproximado: **177,000+ registros** procesados
+    """)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # ==========================================
 # SECCIÓN 1: ASISTENCIA Y CAPACIDAD
@@ -833,6 +931,7 @@ st.markdown("""
 <div style='text-align: center; color: #666; padding: 2rem 0;'>
     <p><strong>⚽ Mundial 2026 Analytics Dashboard</strong></p>
     <p>Datos procesados y almacenados en AWS S3 | Última actualización: Automática via LAMBDA de AWS! </p>
+    <p>Para mas informacion acerca del analisis, visita mi portafolio! https://yalbanii.github.io/aws-data-yalbani/ </p>
     <p>🇲🇽 México • 🇨🇦 Canadá • 🇺🇸 Estados Unidos</p>
 </div>
 """, unsafe_allow_html=True)
