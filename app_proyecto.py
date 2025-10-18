@@ -12,12 +12,26 @@ load_dotenv()
 # ==========================================
 # CONFIGURACIÓN DE AWS
 # ==========================================
-s3_client = boto3.client(
-    's3',
-    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-    region_name='us-west-1'  # Hardcoded - tu región
-)
+aws_key = os.getenv('AWS_ACCESS_KEY_ID', '')
+aws_secret = os.getenv('AWS_SECRET_ACCESS_KEY', '')
+aws_region = os.getenv('AWS_DEFAULT_REGION', 'us-west-1')
+
+if not aws_key or not aws_secret:
+    st.error("❌ CREDENCIALES DE AWS NO ENCONTRADAS")
+    st.error("Verifica que las variables de entorno estén configuradas correctamente")
+    st.stop()
+
+try:
+    s3_client = boto3.client(
+        's3',
+        aws_access_key_id=aws_key,
+        aws_secret_access_key=aws_secret,
+        region_name=aws_region
+    )
+    st.sidebar.success("✅ Cliente S3 listo!")
+except Exception as e:
+    st.error(f"❌ Error al configurar cliente S3: {e}")
+    st.stop()
 
 # ==========================================
 # CONFIGURACIÓN DE PÁGINA
