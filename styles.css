@@ -402,13 +402,13 @@ body {
     text-align: center;
 }
 
-.dashboard-button {
-    display: inline-block; 
-    
+.dashboard-button {    
+    display: block;
+    width: 250px;
+    margin: 25px auto 0 auto;
     padding: 12px 25px;
     margin-top: 25px; 
-    
-    background-color: #007bff;
+    background-color: #ff9906;
     color: white;
     text-decoration: none; 
     border-radius: 8px;
