@@ -9,29 +9,6 @@ from dotenv import load_dotenv
 
 # Cargar variables de entorno
 load_dotenv()
-# ==========================================
-# CONFIGURACIÓN DE AWS
-# ==========================================
-aws_key = os.getenv('AWS_ACCESS_KEY_ID', '')
-aws_secret = os.getenv('AWS_SECRET_ACCESS_KEY', '')
-aws_region = os.getenv('AWS_DEFAULT_REGION', 'us-west-1')
-
-if not aws_key or not aws_secret:
-    st.error("❌ CREDENCIALES DE AWS NO ENCONTRADAS")
-    st.error("Verifica que las variables de entorno estén configuradas correctamente")
-    st.stop()
-
-try:
-    s3_client = boto3.client(
-        's3',
-        aws_access_key_id=aws_key,
-        aws_secret_access_key=aws_secret,
-        region_name=aws_region
-    )
-    st.sidebar.success("✅ Cliente S3 listo!")
-except Exception as e:
-    st.error(f"❌ Error al configurar cliente S3: {e}")
-    st.stop()
 
 # ==========================================
 # CONFIGURACIÓN DE PÁGINA
@@ -70,15 +47,6 @@ st.markdown("""
 div[data-testid="stMetricValue"] {
     font-size: 2rem;
     font-weight: bold;
-}
-.neon-yellow-container {
-    background-color: #1a1a1a;
-    border: 3px solid #ffff00;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 0 20px rgba(255, 255, 0, 0.6),
-                inset 0 0 20px rgba(255, 255, 0, 0.1);
-    margin-bottom: 30px;
 }
 .neon-yellow-title {
     color: #ffff00;
@@ -181,7 +149,6 @@ st.sidebar.markdown("---")
 st.sidebar.info("💡 **Datos actualizados desde S3**\n\n Acceso concedido en S3 para explorar los análisis del Mundial 2026.")
 
 if seccion == "📋 Fuentes de Datos":
-    st.markdown('<div class="neon-yellow-container">', unsafe_allow_html=True)
     st.markdown('<h1 class="neon-yellow-title">⚡ FUENTES DE DATOS ⚡</h1>', unsafe_allow_html=True)
 
     datos_fuentes = pd.DataFrame({
@@ -238,8 +205,6 @@ if seccion == "📋 Fuentes de Datos":
     - Total aproximado: **177,000+ registros** procesados
     """)
     
-    st.markdown('</div>', unsafe_allow_html=True)
-
 # ==========================================
 # SECCIÓN 1: ASISTENCIA Y CAPACIDAD
 # ==========================================
