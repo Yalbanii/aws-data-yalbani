@@ -37,4 +37,4 @@ jobs:
           docker-compose down --remove-orphans
           docker-compose up -d --build
           docker-compose ps
-          docker logs --tail 50 taxi_dashboard || true
+          docker logs --tail 50 mundial_dashboard || true
