@@ -71,7 +71,7 @@ div[data-testid="stMetricValue"] {
 @st.cache_data(ttl=600)
 def cargar_csv_desde_s3(bucket, key):
     """Carga un archivo CSV desde S3 con cache"""
-     try:
+    try:
         obj = s3_client.get_object(Bucket=bucket, Key=key)
         body = obj["Body"].read()
         return pd.read_csv(io.BytesIO(body))
