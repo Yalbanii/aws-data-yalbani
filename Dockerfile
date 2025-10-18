@@ -2,14 +2,14 @@
 FROM python:3.11
  
 # Instalar dependencias necesarias
-RUN pip install --no-cache-dir  streamlit mysql-connector-python pandas  matplotlib seaborn dotenv
+RUN pip install --no-cache-dir streamlit boto3 pandas plotly python-dotenv
  
 # Crear directorio de trabajo
 WORKDIR /app
 
 # Copiar el código de la app (ajusta la ruta según tu estructura)
-COPY "Proyecto Final/Archivos analisis/app_proyecto.py" /app/app_proyecto.py
- 
+COPY app_proyecto.py /app/
+
 # Exponer el puerto de Streamlit
 EXPOSE 8501
  
