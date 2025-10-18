@@ -2,7 +2,7 @@
 FROM python:3.11
  
 # Instalar dependencias necesarias
-RUN pip install --no-cache-dir streamlit boto3 pandas plotly python-dotenv
+RUN pip install --no-cache-dir streamlit boto3 pandas plotly python-dotenv matplotlib
  
 # Crear directorio de trabajo
 WORKDIR /app
