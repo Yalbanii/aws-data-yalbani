@@ -4,6 +4,18 @@ import boto3
 import io
 import plotly.express as px
 import plotly.graph_objects as go
+import os
+from dotenv import load_dotenv
+
+# Cargar variables de entorno
+load_dotenv()
+import boto3
+s3 = boto3.client(
+    's3',
+    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+    region_name=os.getenv('AWS_DEFAULT_REGION', 'us-west-1')
+)
 
 # ==========================================
 # CONFIGURACIÓN DE PÁGINA
@@ -53,14 +65,14 @@ div[data-testid="stMetricValue"] {
 def cargar_csv_desde_s3(bucket, key):
     """Carga un archivo CSV desde S3 con cache"""
     try:
-        s3 = boto3.client("s3")
+        # Usar el cliente s3 configurado con credenciales
         obj = s3.get_object(Bucket=bucket, Key=key)
         body = obj["Body"].read()
         return pd.read_csv(io.BytesIO(body))
     except Exception as e:
         st.error(f"❌ Error al cargar {key}: {e}")
         return pd.DataFrame()
-
+        
 # ==========================================
 # CONFIGURACIÓN S3
 # ==========================================
