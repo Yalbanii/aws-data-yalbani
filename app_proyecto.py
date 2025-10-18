@@ -9,12 +9,19 @@ from dotenv import load_dotenv
 
 # Cargar variables de entorno
 load_dotenv()
-import boto3
-s3 = boto3.client(
+
+# ==========================================
+# CONFIGURACIÓN DE AWS
+# ==========================================
+# Obtener región, con fallback a us-west-1 si no está definida
+aws_region = os.getenv('AWS_DEFAULT_REGION') or os.getenv('AWS_REGION') or 'us-west-1'
+
+# Configurar cliente S3
+s3_client = boto3.client(
     's3',
     aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
     aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-    region_name=os.getenv('AWS_DEFAULT_REGION', 'us-west-1')
+    region_name=aws_region
 )
 
 # ==========================================
@@ -64,9 +71,8 @@ div[data-testid="stMetricValue"] {
 @st.cache_data(ttl=600)
 def cargar_csv_desde_s3(bucket, key):
     """Carga un archivo CSV desde S3 con cache"""
-    try:
-        # Usar el cliente s3 configurado con credenciales
-        obj = s3.get_object(Bucket=bucket, Key=key)
+     try:
+        obj = s3_client.get_object(Bucket=bucket, Key=key)
         body = obj["Body"].read()
         return pd.read_csv(io.BytesIO(body))
     except Exception as e:
