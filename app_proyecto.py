@@ -13,17 +13,33 @@ load_dotenv()
 # ==========================================
 # CONFIGURACIÓN DE AWS
 # ==========================================
-# Obtener región, con fallback a us-west-1 si no está definida
-aws_region = os.getenv('AWS_DEFAULT_REGION') or os.getenv('AWS_REGION') or 'us-west-1'
 
-# Configurar cliente S3
-s3_client = boto3.client(
-    's3',
-    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-    region_name=aws_region
-)
+aws_key = os.getenv('AWS_ACCESS_KEY_ID', '')
+aws_secret = os.getenv('AWS_SECRET_ACCESS_KEY', '')
+aws_region = os.getenv('AWS_DEFAULT_REGION', 'us-west-1')
 
+st.sidebar.write("🔍 Debug Info:")
+st.sidebar.write(f"AWS Key presente: {'✅ Sí' if aws_key else '❌ No'}")
+st.sidebar.write(f"AWS Secret presente: {'✅ Sí' if aws_secret else '❌ No'}")
+st.sidebar.write(f"AWS Region: {aws_region}")
+st.sidebar.write(f"AWS Key (primeros 4): {aws_key[:4] if aws_key else 'N/A'}")
+
+if not aws_key or not aws_secret:
+    st.error("❌ CREDENCIALES DE AWS NO ENCONTRADAS")
+    st.error("Verifica que las variables de entorno estén configuradas correctamente")
+    st.stop()
+
+try:
+    s3_client = boto3.client(
+        's3',
+        aws_access_key_id=aws_key,
+        aws_secret_access_key=aws_secret,
+        region_name=aws_region
+    )
+    st.sidebar.success("✅ Cliente S3 configurado")
+except Exception as e:
+    st.error(f"❌ Error al configurar cliente S3: {e}")
+    st.stop()
 # ==========================================
 # CONFIGURACIÓN DE PÁGINA
 # ==========================================
