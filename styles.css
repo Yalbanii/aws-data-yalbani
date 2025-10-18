@@ -340,7 +340,7 @@ body {
     text-align: center;
     color: var(--neon-yellow);
     font-size: 2.5rem;
-    font-weight: 900;
+    font-weight: 600;
     text-shadow: 0 0 10px var(--neon-yellow),
                  0 0 20px var(--neon-yellow-glow);
     margin-bottom: 30px;
