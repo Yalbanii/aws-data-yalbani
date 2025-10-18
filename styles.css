@@ -261,14 +261,14 @@ body {
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: 1700px;
     margin: 0 auto;
 }
 
 .insights-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    gap: 20px;
     margin-bottom: 40px;
 }
 
